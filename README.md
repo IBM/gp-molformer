@@ -5,12 +5,16 @@ Code and data for **G**enerative **P**re-trained **M**olecular **L**anguage tran
 
 ![GP-MoLFormer](assets/GP-MoLFormer_overview.png)
 
+GP-MoLFormer is a large-scale autoregressive chemical language model intended for molecule generation tasks. GP-MoLFormer employs the same architecture as [MoLFormer-XL](https://github.com/IBM/molformer), including linear attention and rotary position embeddings, but uses decoder-only Transformer blocks trained with a causal language modeling objective. It is trained on up to 1.1B molecules in SMILES representation.
+
+GP-MoLFormer was evaluated on _de novo_ generation (at scale), scaffold-constrained decoration, and molecular property optimization tasks. Unconstrained property optimization was performed using a novel parameter-efficient fine-tuning method we call "pair-tuning". Pair-tuning is a soft prompt learning method which uses only ordered pairs of inputs to steer the model's generations in the direction implied by the data.
+
 ## Models
 
-| Model  | Training size | Link |
-| ------ | ------------- | ---- |
-| GP-MoLFormer  | 1.1B  |  |
-| GP-MoLFormer-Uniq  | 650M  | [![Model on HF](https://huggingface.co/datasets/huggingface/badges/resolve/main/model-on-hf-md.svg)](https://huggingface.co/ibm-research/GP-MoLFormer-Uniq) |
+| Model  | Parameters | Training size | Link |
+| ------ | ---------- | ------------- | ---- |
+| GP-MoLFormer  | 46.8M | 1.1B  |  |
+| GP-MoLFormer-Uniq  | 46.8M | 650M  | [![Model on HF](https://huggingface.co/datasets/huggingface/badges/resolve/main/model-on-hf-md.svg)](https://huggingface.co/ibm-research/GP-MoLFormer-Uniq) |
 
 ## Installation
 We recommend using mamba for virtual environment management (although this can be substituted with conda).
